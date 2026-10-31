@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { handleWhatsAppClick, handlePhoneClick } from '@/lib/analytics';
 
-const WA_HREF = 'https://wa.me/966552219925';
-const TEL_HREF = 'tel:0552219925';
+const WA_HREF = 'https://wa.me/966531489160';
+const TEL_HREF = 'tel:0531489160';
+const IG_HREF = 'https://www.instagram.com/blacksmithing_and_decoration_a';
 
 const navLinks = [
   { label: 'الرئيسية', href: '#home' },
@@ -22,7 +23,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -41,35 +42,35 @@ export default function Navbar() {
           right: 0,
           left: 0,
           zIndex: 1000,
-          transition: 'all 0.4s ease',
-          background: scrolled
-            ? 'rgba(10, 15, 10, 0.97)'
-            : 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%)',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(201,168,76,0.2)' : 'none',
-          padding: scrolled ? '0.75rem 0' : '1.25rem 0',
+          transition: 'all 0.3s ease',
+          background: '#FFFFFF',
+          boxShadow: scrolled
+            ? '0 4px 20px rgba(0, 0, 0, 0.1)'
+            : '0 2px 10px rgba(0, 0, 0, 0.06)',
+          borderBottom: '1px solid #e2e8f0',
+          padding: scrolled ? '0.75rem 0' : '1.1rem 0',
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* Logo */}
           <Link href="#home" onClick={handleLinkClick} style={{ textDecoration: 'none' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
               <span style={{
-                fontSize: '1.4rem',
+                fontSize: '1.25rem',
                 fontWeight: 900,
-                color: 'var(--color-gold)',
-                lineHeight: 1.1,
+                color: '#1E293B',
+                lineHeight: 1.15,
                 letterSpacing: '-0.02em',
               }}>
-                فخر الخليج
+                مقاولات عامة <span style={{ color: '#F59E0B' }}>بالدمام</span>
               </span>
               <span style={{
                 fontSize: '0.75rem',
-                fontWeight: 500,
-                color: 'rgba(255,255,255,0.75)',
-                letterSpacing: '0.05em',
+                fontWeight: 600,
+                color: '#64748B',
+                letterSpacing: '0.04em',
               }}>
-                للمقاولات العامة
+                حدادة • ديكور • بناء
               </span>
             </div>
           </Link>
@@ -89,9 +90,9 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   style={{
-                    color: 'rgba(255,255,255,0.85)',
+                    color: '#1E293B',
                     textDecoration: 'none',
-                    fontWeight: 600,
+                    fontWeight: 700,
                     fontSize: '0.92rem',
                     padding: '0.5rem 0.85rem',
                     borderRadius: '8px',
@@ -99,11 +100,11 @@ export default function Navbar() {
                     display: 'block',
                   }}
                   onMouseEnter={(e) => {
-                    (e.target as HTMLElement).style.color = 'var(--color-gold)';
-                    (e.target as HTMLElement).style.background = 'rgba(201,168,76,0.1)';
+                    (e.target as HTMLElement).style.color = '#F59E0B';
+                    (e.target as HTMLElement).style.background = 'rgba(245,158,11,0.08)';
                   }}
                   onMouseLeave={(e) => {
-                    (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.85)';
+                    (e.target as HTMLElement).style.color = '#1E293B';
                     (e.target as HTMLElement).style.background = 'transparent';
                   }}
                 >
@@ -127,7 +128,7 @@ export default function Navbar() {
             <li>
               <a
                 id="nav-instagram-btn"
-                href="https://www.instagram.com/yhyyshrym080?stkn=MWxnbGl6b3VqcWNkcw=="
+                href={IG_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="تابعنا على انستغرام"
@@ -138,7 +139,7 @@ export default function Navbar() {
                   padding: '0.55rem 1.25rem',
                   fontSize: '0.9rem',
                   fontWeight: 700,
-                  borderRadius: '8px',
+                  borderRadius: '50px',
                   textDecoration: 'none',
                   cursor: 'pointer',
                   color: 'white',
@@ -176,7 +177,7 @@ export default function Navbar() {
               display: 'block',
               width: '26px',
               height: '2px',
-              background: 'var(--color-gold)',
+              background: '#1E293B',
               borderRadius: '2px',
               transition: 'all 0.3s ease',
               transform: isOpen ? 'rotate(45deg) translateY(7px)' : 'none',
@@ -185,7 +186,7 @@ export default function Navbar() {
               display: 'block',
               width: '26px',
               height: '2px',
-              background: 'var(--color-gold)',
+              background: '#1E293B',
               borderRadius: '2px',
               transition: 'all 0.3s ease',
               opacity: isOpen ? 0 : 1,
@@ -194,7 +195,7 @@ export default function Navbar() {
               display: 'block',
               width: '26px',
               height: '2px',
-              background: 'var(--color-gold)',
+              background: '#1E293B',
               borderRadius: '2px',
               transition: 'all 0.3s ease',
               transform: isOpen ? 'rotate(-45deg) translateY(-7px)' : 'none',
@@ -212,8 +213,7 @@ export default function Navbar() {
           left: 0,
           bottom: 0,
           zIndex: 999,
-          background: 'rgba(10,15,10,0.98)',
-          backdropFilter: 'blur(20px)',
+          background: '#FFFFFF',
           transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
           transition: 'transform 0.4s cubic-bezier(0.77, 0, 0.175, 1)',
           display: 'flex',
@@ -222,6 +222,7 @@ export default function Navbar() {
           justifyContent: 'center',
           gap: '2rem',
           paddingTop: '5rem',
+          boxShadow: '-4px 0 20px rgba(0,0,0,0.1)',
         }}
       >
         {navLinks.map((link, i) => (
@@ -230,19 +231,19 @@ export default function Navbar() {
             href={link.href}
             onClick={handleLinkClick}
             style={{
-              color: 'var(--color-white)',
+              color: '#1E293B',
               textDecoration: 'none',
-              fontSize: '1.5rem',
+              fontSize: '1.4rem',
               fontWeight: 700,
               padding: '0.75rem 2rem',
-              borderBottom: '1px solid rgba(201,168,76,0.2)',
+              borderBottom: '1px solid #f1f5f9',
               width: '80%',
               textAlign: 'center',
               transition: 'color 0.2s ease',
               animationDelay: `${i * 0.05}s`,
             }}
-            onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--color-gold)'}
-            onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--color-white)'}
+            onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#F59E0B'}
+            onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#1E293B'}
           >
             {link.label}
           </a>
@@ -256,7 +257,7 @@ export default function Navbar() {
           </button>
           <a
             id="mobile-instagram-btn"
-            href="https://www.instagram.com/yhyyshrym080?stkn=MWxnbGl6b3VqcWNkcw=="
+            href={IG_HREF}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="تابعنا على انستغرام"
@@ -267,7 +268,7 @@ export default function Navbar() {
               padding: '0.75rem 1.75rem',
               fontSize: '1rem',
               fontWeight: 700,
-              borderRadius: '8px',
+              borderRadius: '50px',
               textDecoration: 'none',
               cursor: 'pointer',
               color: 'white',

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -18,15 +18,15 @@ interface Props {
   data: ServicePageData;
 }
 
-const PHONE = '0552219925';
-const WA_HREF = 'https://wa.me/966552219925';
-const TEL_HREF = 'tel:0552219925';
+const PHONE = '0531489160';
+const WA_HREF = 'https://wa.me/966531489160';
+const TEL_HREF = 'tel:0531489160';
 
 export default function ServicePageLayout({ data }: Props) {
   return (
     <>
       <Navbar />
-      <main>
+      <main style={{ background: '#FFFFFF' }}>
         {/* Hero */}
         <section
           style={{
@@ -35,18 +35,22 @@ export default function ServicePageLayout({ data }: Props) {
             display: 'flex',
             alignItems: 'center',
             overflow: 'hidden',
+            background: '#FFFFFF',
           }}
         >
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            {data.title === 'مظلات الدمام' ? (
-              <img src="/images/5.jpg" alt="مظلات الدمام" className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
-            ) : (
-              <img src={data.image} alt={data.title} className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
-            )}
+            <Image
+              src={data.image}
+              alt="مقاولات الدمام - كلادينج - مظلات - هناجر"
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.18 }}
+            />
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(135deg, rgba(10,15,10,0.93) 0%, rgba(27,67,50,0.8) 100%)',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%)',
             }} />
           </div>
 
@@ -54,13 +58,14 @@ export default function ServicePageLayout({ data }: Props) {
             <Link
               href="/#services"
               style={{
-                color: 'rgba(255,255,255,0.6)',
-                fontSize: '0.9rem',
+                color: '#64748B',
+                fontSize: '0.92rem',
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',
                 marginBottom: '1.5rem',
+                fontWeight: 700,
               }}
             >
               ← العودة للخدمات
@@ -69,19 +74,20 @@ export default function ServicePageLayout({ data }: Props) {
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
                 fontWeight: 900,
-                color: 'var(--color-white)',
+                color: '#1E293B',
                 lineHeight: 1.2,
                 marginBottom: '1.25rem',
               }}
             >
-              <span className="gold-shimmer">{data.title}</span>
+              <span>{data.title}</span>
             </h1>
             <p style={{
               fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-              color: 'rgba(255,255,255,0.75)',
-              maxWidth: '600px',
+              color: '#475569',
+              maxWidth: '650px',
               lineHeight: 1.8,
               marginBottom: '2.5rem',
+              fontWeight: 500,
             }}>
               {data.subtitle}
             </p>
@@ -120,8 +126,9 @@ export default function ServicePageLayout({ data }: Props) {
         </section>
 
         {/* Description + Features */}
-        <section style={{ padding: '5rem 0', background: '#ffffff' }}>
+        <section style={{ padding: '5rem 0', background: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
           <div className="container" style={{ maxWidth: '900px' }}>
+<<<<<<< HEAD
             {data.title === 'مظلات الدمام' && (
               <div className="mb-8">
                 <img
@@ -132,15 +139,18 @@ export default function ServicePageLayout({ data }: Props) {
               </div>
             )}
             <p style={{ color: '#3a3a3a', fontSize: '1.08rem', lineHeight: 2, marginBottom: '2.5rem' }}>
+=======
+            <p style={{ color: '#334155', fontSize: '1.08rem', lineHeight: 2, marginBottom: '2.5rem', fontWeight: 500 }}>
+>>>>>>> cc52501 (feat(seo): optimize meta tags, jsonld schema, alt attributes and update footer)
               {data.description}
             </p>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0a2e1f', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1E293B', marginBottom: '1.5rem' }}>
               مميزات الخدمة
             </h2>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {data.features.map((f, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', color: '#3a3a3a', fontSize: '1rem', lineHeight: 1.7 }}>
-                  <span style={{ color: 'var(--color-gold)', fontWeight: 700, flexShrink: 0, fontSize: '1.1rem' }}>✓</span>
+                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', color: '#475569', fontSize: '1rem', lineHeight: 1.7 }}>
+                  <span style={{ color: '#F59E0B', fontWeight: 800, flexShrink: 0, fontSize: '1.1rem' }}>✓</span>
                   {f}
                 </li>
               ))}
@@ -149,10 +159,10 @@ export default function ServicePageLayout({ data }: Props) {
         </section>
 
         {/* FAQ */}
-        <section style={{ padding: '5rem 0', background: 'var(--color-dark-2)' }}>
+        <section style={{ padding: '5rem 0', background: '#F8FAFC', borderTop: '1px solid #E2E8F0' }}>
           <div className="container" style={{ maxWidth: '900px' }}>
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--color-white)', marginBottom: '2.5rem', textAlign: 'center' }}>
-              أسئلة شائعة عن <span style={{ color: 'var(--color-gold)' }}>{data.title}</span>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#1E293B', marginBottom: '2.5rem', textAlign: 'center' }}>
+              أسئلة شائعة عن <span style={{ color: '#F59E0B' }}>{data.title}</span>
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {data.faqs.map((faq, i) => (
@@ -161,20 +171,21 @@ export default function ServicePageLayout({ data }: Props) {
                   itemScope
                   itemType="https://schema.org/Question"
                   style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(201,168,76,0.2)',
-                    borderRadius: '12px',
+                    background: '#FFFFFF',
+                    border: '1px solid #E2E8F0',
+                    borderRadius: '16px',
                     padding: '1.5rem',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                   }}
                 >
                   <h3
                     itemProp="name"
-                    style={{ color: 'var(--color-gold)', fontWeight: 700, fontSize: '1rem', marginBottom: '0.75rem' }}
+                    style={{ color: '#1E293B', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.75rem' }}
                   >
                     {faq.q}
                   </h3>
                   <div itemScope itemType="https://schema.org/Answer">
-                    <p itemProp="text" style={{ color: '#8fa68f', lineHeight: 1.9, fontSize: '0.97rem' }}>
+                    <p itemProp="text" style={{ color: '#475569', lineHeight: 1.9, fontSize: '0.98rem' }}>
                       {faq.a}
                     </p>
                   </div>
@@ -186,16 +197,17 @@ export default function ServicePageLayout({ data }: Props) {
 
         {/* Bottom CTA */}
         <section style={{
-          padding: '4rem 0',
-          background: 'linear-gradient(135deg, var(--color-green) 0%, var(--color-dark) 100%)',
+          padding: '4.5rem 0',
+          background: '#FFFFFF',
+          borderTop: '1px solid #E2E8F0',
           textAlign: 'center',
         }}>
           <div className="container">
-            <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 900, color: 'var(--color-white)', marginBottom: '0.75rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 900, color: '#1E293B', marginBottom: '0.75rem' }}>
               جاهز لبدء مشروعك؟
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', fontSize: '1.05rem' }}>
-              تواصل معنا الآن للحصول على عرض سعر مجاني
+            <p style={{ color: '#64748B', marginBottom: '2rem', fontSize: '1.05rem', fontWeight: 500 }}>
+              تواصل معنا الآن للحصول على استشارة مجانية وعرض سعر فوري
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button

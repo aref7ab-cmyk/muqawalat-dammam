@@ -3,14 +3,34 @@
 import Image from 'next/image';
 import { handleWhatsAppClick, handlePhoneClick } from '@/lib/analytics';
 
-const WA_HREF = 'https://wa.me/966552219925';
-const TEL_HREF = 'tel:0552219925';
+const WA_HREF = 'https://wa.me/966531489160';
+const TEL_HREF = 'tel:0531489160';
 
 const services = [
-  { title: "الهياكل الحديدية والمستودعات", desc: "تصميم وتنفيذ هناجر ومستودعات وهياكل معدنية بمواصفات هندسية.", img: "/images/1.jpg" },
-  { title: "المظلات", desc: "مظلات سيارات ومظلات حدائق ومظلات مدارس بجودة عالية.", img: "/images/5.jpg" },
-  { title: "المجالس والجلسات", desc: "مجالس خارجية وبيوت شعر وبرجولات للاستراحات والفلل.", img: "/images/3.jpg" },
-  { title: "السواتر والترميم", desc: "سواتر حديد وقماش وخشب للخصوصية مع أعمال الترميم والصيانة.", img: "/images/10.jpg" }
+  {
+    title: "واجهات كلادينج",
+    desc: "تنفيذ واجهات كلادينج حديثة بجودة عالية وتشطيب احترافي يدوم طويلا",
+    img: "/images/cladding-1.jpg",
+    alt: "مقاولات الدمام - كلادينج - مظلات - هناجر"
+  },
+  {
+    title: "مظلات وسواتر",
+    desc: "تركيب جميع أنواع المظلات والسواتر بجودة عالية وتصاميم عصرية",
+    img: "/images/mazalla-1.jpg",
+    alt: "مقاولات الدمام - كلادينج - مظلات - هناجر"
+  },
+  {
+    title: "واجهات كلادينج فاخرة",
+    desc: "واجهات فلل كلادينج فاخرة بتصاميم عصرية وجودة مضمونة",
+    img: "/images/cladding-9.jpg",
+    alt: "مقاولات الدمام - كلادينج - مظلات - هناجر"
+  },
+  {
+    title: "برجولات وجلسات خارجية",
+    desc: "تصميم وتنفيذ أحدث البرجولات الخشبية والمعدنية للحدائق والأسطح بتشطيبات راقية",
+    img: "/images/pergola-1.jpg",
+    alt: "مقاولات الدمام - كلادينج - مظلات - هناجر"
+  }
 ];
 
 export default function ServicesSection() {
@@ -19,24 +39,11 @@ export default function ServicesSection() {
       id="services"
       style={{
         padding: '6rem 0',
-        background: '#ffffff',
+        background: '#FFFFFF',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Background decoration */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        right: '-10%',
-        width: '500px',
-        height: '500px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(27,67,50,0.1) 0%, transparent 70%)',
-        transform: 'translateY(-50%)',
-        pointerEvents: 'none',
-      }} />
-
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -46,7 +53,7 @@ export default function ServicesSection() {
             ماذا <span>نُقدم</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            نقدم خدمات متكاملة في مجال المقاولات العامة لتلبية احتياجات مشاريعكم بكفاءة واحترافية
+            نقدم حلولاً متكاملة في واجهات الكلادينج والمظلات والسواتر والبرجولات بأعلى معايير الدقة والإتقان
           </p>
         </div>
 
@@ -54,7 +61,7 @@ export default function ServicesSection() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1.75rem',
+          gap: '2rem',
         }}>
           {services.map((service, i) => (
             <div
@@ -62,18 +69,21 @@ export default function ServicesSection() {
               id={`service-${i}`}
               className="card-hover"
               style={{
-                background: '#ffffff',
-                border: '1px solid #e4e4e7',
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
                 borderRadius: '20px',
                 overflow: 'hidden',
                 position: 'relative',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+                display: 'flex',
+                flexDirection: 'column',
               }}
             >
               {/* Image */}
-              <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '230px', overflow: 'hidden' }}>
                 <Image
                   src={service.img}
-                  alt={service.title}
+                  alt={service.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
@@ -83,27 +93,27 @@ export default function ServicesSection() {
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  background: `linear-gradient(to top, rgba(10,15,10,0.9) 0%, rgba(10,15,10,0.3) 60%, transparent 100%)`,
+                  background: 'linear-gradient(to top, rgba(30,41,59,0.25) 0%, transparent 60%)',
                 }} />
-
               </div>
 
               {/* Content */}
-              <div style={{ padding: '1.75rem' }}>
+              <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                 <h3 style={{
-                  fontSize: '1.2rem',
+                  fontSize: '1.25rem',
                   fontWeight: 800,
-                  color: '#0a2e1f',
+                  color: '#1E293B',
                   marginBottom: '0.75rem',
                   lineHeight: 1.4,
                 }}>
                   {service.title}
                 </h3>
                 <p style={{
-                  color: '#52525b',
-                  fontSize: '0.92rem',
+                  color: '#475569',
+                  fontSize: '0.94rem',
                   lineHeight: 1.9,
                   marginBottom: '1.5rem',
+                  flexGrow: 1,
                 }}>
                   {service.desc}
                 </p>
@@ -113,9 +123,9 @@ export default function ServicesSection() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.4rem',
-                    color: 'var(--color-gold)',
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
+                    color: '#D97706',
+                    fontWeight: 700,
+                    fontSize: '0.92rem',
                     textDecoration: 'none',
                     transition: 'gap 0.2s ease',
                   }}
@@ -135,15 +145,14 @@ export default function ServicesSection() {
                 </a>
               </div>
 
-              {/* Bottom gold accent line */}
+              {/* Bottom accent line */}
               <div style={{
                 position: 'absolute',
                 bottom: 0,
                 right: 0,
                 left: 0,
                 height: '3px',
-                background: 'linear-gradient(90deg, transparent, var(--color-gold), transparent)',
-                opacity: 0.6,
+                background: 'linear-gradient(90deg, #F59E0B, #FBBF24)',
               }} />
             </div>
           ))}
@@ -151,8 +160,8 @@ export default function ServicesSection() {
 
         {/* CTA */}
         <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-          <p style={{ color: '#52525b', marginBottom: '1.5rem', fontSize: '1.05rem' }}>
-            هل تحتاج مشروعاً؟ نسعد بخدمتك
+          <p style={{ color: '#64748B', marginBottom: '1.5rem', fontSize: '1.05rem', fontWeight: 600 }}>
+            هل تحتاج مشروعاً؟ نسعد بخدمتك دائماً
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button
@@ -164,7 +173,7 @@ export default function ServicesSection() {
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              اتصل الآن: 0552219925
+              اتصل الآن: 0531489160
             </button>
             <button
               id="services-whatsapp-btn"

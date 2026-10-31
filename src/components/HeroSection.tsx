@@ -4,14 +4,12 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { handleWhatsAppClick, trackEvent } from '@/lib/analytics';
 
-const WA_HREF = 'https://wa.me/966552219925';
+const WA_HREF = 'https://wa.me/966531489160';
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
-  // Use a layout effect to set loaded as soon as DOM is ready
-  // (runs synchronously after render, avoids cascading-render lint warning)
   useEffect(() => {
     const id = requestAnimationFrame(() => setLoaded(true));
     return () => cancelAnimationFrame(id);
@@ -27,41 +25,42 @@ export default function HeroSection() {
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
+        background: '#FFFFFF',
       }}
     >
       {/* Background image */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Image
-          src="/images/5.jpg"
-          alt="فخر الخليج للمقاولات العامة - أعمال هياكل حديدية"
+          src="/images/cladding-1.jpg"
+          alt="مقاولات الدمام - كلادينج - مظلات - هناجر"
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="100vw"
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.18 }}
         />
-        {/* Dark overlay with gradient */}
+        {/* Soft white overlay with gradient */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(135deg, rgba(10,15,10,0.92) 0%, rgba(27,67,50,0.75) 50%, rgba(10,15,10,0.85) 100%)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.92) 100%)',
         }} />
-        {/* Gold accent overlay */}
+        {/* Amber accent overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at 20% 50%, rgba(245,158,11,0.06) 0%, transparent 60%)',
         }} />
       </div>
 
-      {/* Animated background shapes */}
+      {/* Decorative shapes */}
       <div style={{
         position: 'absolute',
-        top: '10%',
+        top: '15%',
         left: '5%',
-        width: '300px',
-        height: '300px',
+        width: '320px',
+        height: '320px',
         borderRadius: '50%',
-        border: '1px solid rgba(201,168,76,0.15)',
+        border: '1px solid rgba(245,158,11,0.2)',
         animation: 'spin 20s linear infinite',
         zIndex: 1,
       }} />
@@ -69,27 +68,27 @@ export default function HeroSection() {
         position: 'absolute',
         bottom: '15%',
         right: '10%',
-        width: '200px',
-        height: '200px',
+        width: '220px',
+        height: '220px',
         borderRadius: '50%',
-        border: '1px solid rgba(201,168,76,0.1)',
+        border: '1px solid rgba(30,41,59,0.08)',
         animation: 'spin 30s linear infinite reverse',
         zIndex: 1,
       }} />
 
       {/* Content */}
-      <div className="container" style={{ position: 'relative', zIndex: 2, padding: '8rem 1.5rem 5rem' }}>
-        <div style={{ maxWidth: '750px' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2, padding: '8.5rem 1.5rem 5rem' }}>
+        <div style={{ maxWidth: '820px' }}>
           {/* Badge */}
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
-              background: 'rgba(201,168,76,0.15)',
-              border: '1px solid rgba(201,168,76,0.4)',
+              background: '#FEF3C7',
+              border: '1px solid #FDE68A',
               borderRadius: '50px',
-              padding: '0.4rem 1.2rem',
+              padding: '0.45rem 1.25rem',
               marginBottom: '1.75rem',
               opacity: loaded ? 1 : 0,
               transform: loaded ? 'translateY(0)' : 'translateY(20px)',
@@ -100,49 +99,60 @@ export default function HeroSection() {
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              background: 'var(--color-gold)',
+              background: '#F59E0B',
               display: 'block',
               animation: 'pulse-gold 2s infinite',
             }} />
-            <span style={{ color: 'var(--color-gold)', fontWeight: 600, fontSize: '0.9rem' }}>
-              الدمام - المملكة العربية السعودية
+            <span style={{ color: '#92400E', fontWeight: 700, fontSize: '0.92rem' }}>
+              الدمام والمنطقة الشرقية - المملكة العربية السعودية
             </span>
           </div>
 
           {/* Headline */}
           <h1
             style={{
-              fontSize: 'clamp(2.25rem, 6vw, 4rem)',
+              fontSize: 'clamp(1.85rem, 4.5vw, 3.2rem)',
               fontWeight: 900,
-              lineHeight: 1.2,
-              marginBottom: '1.5rem',
+              lineHeight: 1.25,
+              marginBottom: '1rem',
+              color: '#1E293B',
               opacity: loaded ? 1 : 0,
               transform: loaded ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.7s ease 0.2s',
             }}
           >
-            <span style={{ color: 'var(--color-white)', display: 'block' }}>فخر الخليج</span>
-            <span className="gold-shimmer" style={{ display: 'block' }}>للمقاولات العامة</span>
+            مقاول عام في الدمام - كلادينج، مظلات وسواتر، هناجر ومستودعات
           </h1>
+
+          <h2
+            style={{
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.4rem)',
+              fontWeight: 800,
+              lineHeight: 1.3,
+              marginBottom: '1.5rem',
+              color: '#F59E0B',
+              opacity: loaded ? 1 : 0,
+              transform: loaded ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.7s ease 0.25s',
+            }}
+          >
+            حدادة وبناء وتشطيب وديكور باحترافية
+          </h2>
 
           {/* Tagline */}
           <p
             style={{
-              fontSize: 'clamp(1.05rem, 2.5vw, 1.3rem)',
-              color: 'rgba(255,255,255,0.8)',
+              fontSize: 'clamp(1.05rem, 2.2vw, 1.2rem)',
+              color: '#334155',
               marginBottom: '2.5rem',
               lineHeight: 1.9,
-              fontWeight: 400,
+              fontWeight: 500,
               opacity: loaded ? 1 : 0,
               transform: loaded ? 'translateY(0)' : 'translateY(30px)',
               transition: 'all 0.7s ease 0.35s',
             }}
           >
-            حلول متكاملة لأعمال المقاولات والهياكل الحديدية والمستودعات والمظلات والسواتر
-            <br />
-            <span style={{ color: 'var(--color-gold-light)', fontWeight: 600 }}>
-              احترافية في التنفيذ، دقة في التفاصيل
-            </span>
+            مقاولات عامة في الدمام والمنطقة الشرقية - متخصصون في واجهات كلادينج، مظلات وسواتر، هناجر ومستودعات، حدادة أبواب وشبابيك، بناء عظم وتشطيب، ديكور حديد ودرابزين بجودة عالية وضمان
           </p>
 
           {/* Buttons */}
@@ -196,20 +206,20 @@ export default function HeroSection() {
             }}
           >
             {[
-              { label: 'مشروع منجز', value: '٥٠+' },
-              { label: 'عميل راضٍ', value: '٤٠+' },
-              { label: 'خدمة متكاملة', value: '٤' },
+              { label: 'مشروع منجز', value: '١٠٠+' },
+              { label: 'عميل راضٍ', value: '٨٠+' },
+              { label: 'خدمة متكاملة', value: '٦' },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: 'center' }}>
                 <div style={{
                   fontSize: '2rem',
                   fontWeight: 900,
-                  color: 'var(--color-gold)',
+                  color: '#F59E0B',
                   lineHeight: 1.1,
                 }}>
                   {stat.value}
                 </div>
-                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>
+                <div style={{ fontSize: '0.88rem', color: '#64748B', marginTop: '0.25rem', fontWeight: 600 }}>
                   {stat.label}
                 </div>
               </div>
@@ -232,11 +242,11 @@ export default function HeroSection() {
         opacity: loaded ? 1 : 0,
         transition: 'opacity 1s ease 1.2s',
       }}>
-        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>تصفح</span>
+        <span style={{ fontSize: '0.78rem', color: '#64748B', letterSpacing: '0.1em', fontWeight: 600 }}>تصفح</span>
         <div style={{
           width: '24px',
           height: '40px',
-          border: '2px solid rgba(201,168,76,0.4)',
+          border: '2px solid rgba(245,158,11,0.5)',
           borderRadius: '12px',
           display: 'flex',
           justifyContent: 'center',
@@ -245,7 +255,7 @@ export default function HeroSection() {
           <div style={{
             width: '4px',
             height: '8px',
-            background: 'var(--color-gold)',
+            background: '#F59E0B',
             borderRadius: '2px',
             animation: 'scrollBounce 1.5s ease infinite',
           }} />
