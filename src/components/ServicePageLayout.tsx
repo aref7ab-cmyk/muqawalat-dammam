@@ -39,13 +39,10 @@ export default function ServicePageLayout({ data }: Props) {
           }}
         >
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            <Image
+            <img
               src={data.image}
               alt="مقاولات الدمام - كلادينج - مظلات - هناجر"
-              fill
-              priority
-              sizes="100vw"
-              style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.18 }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.18, position: 'absolute', inset: 0 }}
             />
             <div style={{
               position: 'absolute',
@@ -128,7 +125,6 @@ export default function ServicePageLayout({ data }: Props) {
         {/* Description + Features */}
         <section style={{ padding: '5rem 0', background: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
           <div className="container" style={{ maxWidth: '900px' }}>
-<<<<<<< HEAD
             {data.title === 'مظلات الدمام' && (
               <div className="mb-8">
                 <img
@@ -139,9 +135,6 @@ export default function ServicePageLayout({ data }: Props) {
               </div>
             )}
             <p style={{ color: '#3a3a3a', fontSize: '1.08rem', lineHeight: 2, marginBottom: '2.5rem' }}>
-=======
-            <p style={{ color: '#334155', fontSize: '1.08rem', lineHeight: 2, marginBottom: '2.5rem', fontWeight: 500 }}>
->>>>>>> cc52501 (feat(seo): optimize meta tags, jsonld schema, alt attributes and update footer)
               {data.description}
             </p>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1E293B', marginBottom: '1.5rem' }}>
